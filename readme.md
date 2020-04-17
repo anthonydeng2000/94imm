@@ -1,5 +1,5 @@
 # 安装说明：
-## 自动安装：
+## 自动安装(仅仅centos7)：
 ```
 wget -O install.sh https://raw.githubusercontent.com/Turnright-git/94imm/master/install.sh && chmod +x install.sh &&./install.sh
 ```
