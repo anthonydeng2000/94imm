@@ -59,6 +59,8 @@ friendly_link = [{"name":"94imm","link":"https://www.94imm.com"},{"name":"获取
 清空网站缓存（使所做的修改立即生效）
 ./start c
 ```
+> 使用说明：
+> 爬虫目录为crawler，统一读取config中的数据库信息。在此目录下执行python3 爬虫文件名可手动采集，加入系统定时任务可实现自动采集
 > 项目模板目录templates，base.html中可直接添加统计代码
 
 手动安装说明
