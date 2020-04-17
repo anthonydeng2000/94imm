@@ -65,10 +65,15 @@ friendly_link = [{"name":"94imm","link":"https://www.94imm.com"},{"name":"获取
 > 项目依赖python3.6 mysql5.6
 
 ```
-git clone https://github.com/Turnright-git/94imm.git
-cd 94imm
-vi config.py  #参照配置说明修改
-vi uwsgi.ini  #修改uwsgi配置
+1.安装python3.6
+2.安装mysql5.5+ 建议5.6
+3.克隆项目
+4.进入项目目录执行 pip3 install -r requirements.txt
+5.修改config.py和uwsgi.ini
+6.导入sql文件
+7.复制templates/zde/pagination.html 到/python安装目录/site-packages/dj_pagination/templates/pagination/
+8.项目根目录下执行./start s 启动网站
+9.如需反代自行安装nginx
 ```
 如需使用反向代理，在nginx.conf中添加如下server段
 ```
