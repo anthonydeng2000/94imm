@@ -24,8 +24,8 @@ mysql_config = {
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
-# 数组形式，可以添加多个域名
-allow_url=["www.94imm.com","94imm.com"]
+# 数组形式，可以添加多个域名。如使用反代，此处必须添加127地址，否则400
+allow_url=["www.94imm.com","94imm.com","127.0.0.1"]
 # 缓存超时时间，服务器性能好可缩短此时
 cache_time=300
 # 使用的模板（暂时开放一个）
@@ -71,7 +71,7 @@ friendly_link = [{"name":"94imm","link":"https://www.94imm.com"},{"name":"获取
 2.安装mysql5.5+ 建议5.6
 3.克隆项目
 4.进入项目目录执行 pip3 install -r requirements.txt
-5.修改config.py和uwsgi.ini
+5.修改config.py和uwsgi.ini，uwsgi.ini需要取消英文部分的注释
 6.导入sql文件
 7.复制templates/zde/pagination.html 到/python安装目录/site-packages/dj_pagination/templates/pagination/
 8.项目根目录下执行./start s 启动网站

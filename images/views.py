@@ -208,7 +208,7 @@ def getVideo(request):
             break
         except:
             continue
-    url = video_info.url
+    url="https:"+video_info.url
     user_id = video_info.user_id
     source = video_info.source
     return HttpResponse(json.dumps({"url": url, "user_id": user_id, "source": source}))
@@ -225,7 +225,7 @@ def mVideo(request):
                 break
             except:
                 continue
-        url = "https:"+video_info.url
+        url="https:"+video_info.url
         return render(request, 'mVideo.html', {
             "url": url,
             "user_id": video_info.user_id,

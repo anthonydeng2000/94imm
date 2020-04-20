@@ -82,7 +82,7 @@ git clone https://github.com/Turnright-git/94imm.git
 yum install gcc mariadb-devel -y
 cd "94imm"
 path=$(pwd)
-yum install yum install -y python3-devel
+yum install -y python3-devel
 tmp="tmp"
 mkdir ~/$tmp
 if ! [ -x "$(command -v python3)" ]; then
