@@ -2,8 +2,8 @@
 mysql_config = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': '94imm',
-        'USER': '94imm',
-        'PASSWORD': '94imm',
+        'USER': 'root',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
         'PORT': '3306',
     }
@@ -27,3 +27,5 @@ email = "admin@94imm.com"
 debug = False
 # 友联
 friendly_link = [{"name":"94imm","link":"https://www.94imm.com"},{"name":"获取源码","link":"https://github.com/Turnright-git/94imm.git"}]
+# 远程图片地址
+img_host = "/"

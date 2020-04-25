@@ -2,7 +2,14 @@ from django.shortcuts import render
 from images.models import *
 import random, json
 from django.http import HttpResponse
-from config import site_name, site_url, key_word, description, email,friendly_link
+from config import site_name, site_url, key_word, description, email,friendly_link,img_host
+
+
+def set_img_url(path):
+    if img_host=="/":
+        return path
+    else:
+        return img_host+path
 
 
 
@@ -14,7 +21,7 @@ def index(request):
         for pid in page_list:
             id = pid.id
             title = pid.title
-            firstimg = pid.firstimg
+            firstimg =set_img_url(pid.firstimg)
             sendtime = pid.sendtime
             hot = pid.hot
             type_id = pid.typeid
@@ -46,7 +53,7 @@ def page(request, i_id):
         tags.append({"tname": tag, "tid": tagid})
     imglist = Image.objects.filter(pageid=i_id)
     for img_arr in imglist:
-        img = img_arr.imageurl
+        img = set_img_url(img_arr.imageurl)
         imgs.append(img)
     if len(tags) > 4:
         tags = random.sample(tags, 4)
@@ -67,7 +74,7 @@ def tag(request, tid):
             if tid in pid.tagid:
                 id = pid.id
                 title = pid.title
-                firstimg = pid.firstimg
+                firstimg = site_name(pid.firstimg)
                 type_id = pid.typeid
                 sendtime = pid.sendtime
                 hot = pid.hot
@@ -85,7 +92,7 @@ def type(request, typeid):
         page_list = Page.objects.filter(typeid=typeid).order_by("-id")
         for pid in page_list:
             title = pid.title
-            firstimg = pid.firstimg
+            firstimg = set_img_url(pid.firstimg)
             id = pid.id
             hot = pid.hot
             type_id = pid.typeid
@@ -107,7 +114,7 @@ def page_similar(id):
             stitle = s.title
             pid = s.id
             tid = s.typeid
-            firstimg = s.firstimg
+            firstimg = set_img_url(s.firstimg)
             sendtime = s.sendtime
             hot = s.hot
             if pid != id:
@@ -127,7 +134,7 @@ def search(request):
         pagelist = Page.objects.filter(title__contains=context).order_by("-id")
         for pid in pagelist:
             title = pid.title
-            firstimg = pid.firstimg
+            firstimg = set_img_url(pid.firstimg)
             id = pid.id
             hot = pid.hot
             type_id = pid.typeid
@@ -150,8 +157,6 @@ def HotTag(request):
     for alltag in tag_sql:
         tag_dict.update({str(alltag.id).strip(): alltag.tag})
     for page in page_sql:
-        title = page.title
-        pid = page.id
         tag_id = page.tagid.replace("[", "").replace("]", "").split(",")
         for t in tag_id:
             if str(t).strip() == '':
@@ -185,7 +190,7 @@ def SortBy(request, method):
         type_dict, typelist = type_list()
         for pid in page_list:
             title = pid.title
-            firstimg = pid.firstimg
+            firstimg = set_img_url(pid.firstimg)
             id = pid.id
             hot = pid.hot
             type_id = pid.typeid
