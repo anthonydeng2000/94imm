@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from images.models import *
-import random, json
+import random, json, datetime
 from django.http import HttpResponse
 from config import site_name, site_url, key_word, description, email,friendly_link,img_host
 
@@ -74,7 +74,7 @@ def tag(request, tid):
             if tid in pid.tagid:
                 id = pid.id
                 title = pid.title
-                firstimg = site_name(pid.firstimg)
+                firstimg = pid.firstimg
                 type_id = pid.typeid
                 sendtime = pid.sendtime
                 hot = pid.hot
@@ -273,3 +273,23 @@ def type_list():
         typelist.append({"type": type, "type_id": str(type_id)})
         type_dict.update({type_id: type})
     return type_dict, typelist
+
+
+def date(request, sendtime):
+    if request.method == "GET":
+        imgs = []
+        typedict, typelist = type_list()
+        send=sendtime.split('-')
+        page_list = Page.objects.filter(sendtime=sendtime)
+        for pid in page_list:
+            title = pid.title
+            firstimg = set_img_url(pid.firstimg)
+            id = pid.id
+            hot = pid.hot
+            type_id = pid.typeid
+            sendtime = pid.sendtime
+            imgs.append({"pid": id, "firstimg": firstimg, "title": title, "sendtime": sendtime, "hot": hot,
+                         "type": typedict[type_id], "type_id": type_id})
+        return render(request, 'index.html',
+                      {"data": imgs, "typelist": typelist,  "siteName": site_name,
+                       "keyWord": key_word, "description": description, "siteUrl": site_url, "email": email,"friendly_link":friendly_link})

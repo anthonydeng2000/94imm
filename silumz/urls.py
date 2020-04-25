@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^mvideo/', views.mVideo),
     url(r'^tag/', views.HotTag),
     url(r'^sort/(?P<method>\w+)/$', views.SortBy, name='sort'),
+    url(r'^date/(?P<sendtime>\d+)/$', views.date, name='date'),
 ]

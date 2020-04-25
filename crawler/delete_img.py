@@ -36,7 +36,7 @@ def del_page(id):
         ls = os.listdir('../cache')
         for i in ls:
             os.remove("../cache/"+i)
-        os.system("sh ../restart.sh")
+        os.system("sh ../start.sh r ")
         print("***************")
         print("缓存更新成功")
     except Exception as e:
