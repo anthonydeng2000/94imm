@@ -29,3 +29,5 @@ debug = False
 friendly_link = [{"name":"94imm","link":"https://www.94imm.com"},{"name":"获取源码","link":"https://github.com/Turnright-git/94imm.git"}]
 # 远程图片地址
 img_host = "/"
+# 程序所在目录
+site_path="/root/94imm/"
