@@ -39,8 +39,14 @@ case "$1" in "start"|"s"|"S")
 	run_stop
 	echo "website closed"
 	;;
+  "post")
+  read -p "Number of post: " num
+	cd crawler
+	post=`python3 AutoPost.py "$num"`
+	echo $post
+	;;
 	*)
-	echo -e "Use command to:\n-s   start website\n-r   restart website\n-c   clear cache\n-stop   stop website"
+	echo -e "Use command to:\n-s   start website\n-r   restart website\n-c   clear cache\n-stop   stop website\n-post   Post an image collection"
 	;;
 	esac
 	

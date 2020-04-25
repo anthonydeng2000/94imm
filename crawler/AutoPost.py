@@ -22,7 +22,7 @@ def do_post(file_dir, sleep_time="0", num=1):
     db = pymysql.connect(dbhost.get("host"), dbhost.get("user"), dbhost.get("password"), dbhost.get("dbname"))
     cursor = db.cursor()
     for index, files in enumerate(os.walk(file_dir)):
-        if index >= num:
+        if index > num:
             break
         else:
             tagidlist = []

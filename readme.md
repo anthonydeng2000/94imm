@@ -62,11 +62,19 @@ img_host = "/"
 ```
 ```
 > 使用说明：
+> 自动采集或发布前需要先cd到crawler目录下
 > 爬虫目录为crawler，统一读取config中的数据库信息。在此目录下执行python3 爬虫文件名可手动采集，加入系统定时任务可实现自动采集
 > 项目模板目录templates，base.html中可直接添加统计代码
 > 如使用远程文件需要注意附件手动上传static/images目录到远程服务器（可搭配oneindex的程序）
 ```
-
+```
+> 发布图集：
+> 在项目post目录下新建目录，目录名为图集名称
+> 将图片上传至新建的目录
+> 在项目跟目录下执行sh start.sh post
+> 输入要发布的图集个数
+> 将crawler/AutoPost.py num 添加到定时任务可实现自动发布，如python3 AutoPost.py 5
+```
 手动安装说明
 > 项目依赖python3.6 mysql5.6
 
