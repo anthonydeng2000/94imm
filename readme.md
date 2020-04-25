@@ -44,7 +44,8 @@ email = "admin@94imm.com"
 debug = False
 # 页面底部友情链接
 friendly_link = [{"name":"94imm","link":"https://www.94imm.com"},{"name":"获取源码","link":"https://github.com/Turnright-git/94imm.git"}]
-
+# 远程图片地址,如"https://img.94imm.com","/为使用本地文件".
+img_host = "/"
 ```
 
 使用说明
@@ -59,9 +60,12 @@ friendly_link = [{"name":"94imm","link":"https://www.94imm.com"},{"name":"获取
 清空网站缓存（使所做的修改立即生效）
 ./start c
 ```
+```
 > 使用说明：
 > 爬虫目录为crawler，统一读取config中的数据库信息。在此目录下执行python3 爬虫文件名可手动采集，加入系统定时任务可实现自动采集
 > 项目模板目录templates，base.html中可直接添加统计代码
+> 如使用远程文件需要注意附件手动上传static/images目录到远程服务器（可搭配oneindex的程序）
+```
 
 手动安装说明
 > 项目依赖python3.6 mysql5.6
