@@ -1,7 +1,7 @@
 # 安装说明：
 ## 自动安装(仅仅centos7)：
 ```
-wget -O install.sh https://github.com/anthonydeng2000/94imm/blob/master/install.sh && chmod +x install.sh &&./install.sh
+wget -O install.sh https://raw.githubusercontent.com/anthonydeng2000/94imm/master/install.sh && chmod +x install.sh &&./install.sh
 ```
 安装过程中需要输入
 ```
